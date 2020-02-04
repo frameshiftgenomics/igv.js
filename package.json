@@ -1,6 +1,6 @@
 {
   "name": "igv",
-  "version": "2.3.5",
+  "version": "2.3.6",
   "description": "Embeddable genomic visualization component based on the Integrative Genomics Viewer",
   "main": "dist/igv.esm.js",
   "browser": "dist/igv.js",
@@ -12,6 +12,7 @@
     "build": "node scripts/updateVersion.js && node scripts/generateEmbedCss.js && npx rollup --config && npm run build-umd && npm run build-es6",
     "build-umd": "node scripts/injectRuntime.js && npx terser --compress --mangle --source-map \"url='igv.min.js.map' \" --output  dist/igv.min.js -- dist/igv.js",
     "build-es6": "npx terser --module --compress --mangle --source-map \"url='igv.esm.min.js.map'\" --output  dist/igv.esm.min.js -- dist/igv.esm.js",
+    "install": "npm run build",
     "test": "node runTests.js",
     "prepack": "npm run build",
     "http-server": "npx http-server ."
@@ -37,7 +38,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/igvteam/igv.js.git"
+    "url": "git+https://github.com/frameshiftgenomics/igv.js.git"
   },
   "browserslist": "> 1%, not dead",
   "devDependencies": {
