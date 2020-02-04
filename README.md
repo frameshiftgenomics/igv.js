@@ -12,7 +12,11 @@ See the [Wiki](https://github.com/igvteam/igv.js/wiki) for more documentation.
 
 [Release Notes](https://github.com/igvteam/igv.js/releases)
 
- 
+# Differences from normal IGV
+The only difference is in js/igvxhr.js, I changed it so the URL
+is now attached as a query param to a new request that goes to Mosaic.
+
+
 # Examples
  
 ***[Alignments](https://igv.org/web/release/2.3.5/examples/cram.html)***
