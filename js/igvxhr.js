@@ -166,8 +166,9 @@ const igvxhr = {
                     const responseType = options.responseType;
                     const contentType = options.contentType;
                     const mimeType = options.mimeType;
-                    const newUrl = 'http://localhost:8080/api/i/client-applications/igv/proxy?url=' + encodeURIComponent(url);
+                    const newUrl = '/api/i/client-applications/igv/proxy?url=' + encodeURIComponent(url);
 
+                    // xhr.open(method, url);
                     xhr.open('GET', newUrl);
 
                     if (range) {
