@@ -166,11 +166,19 @@ const igvxhr = {
                     const responseType = options.responseType;
                     const contentType = options.contentType;
                     const mimeType = options.mimeType;
-                    const newUrl = '/api/i/client-applications/igv/proxy?url=' + encodeURIComponent(url);
 
-                    // xhr.open(method, url);
-                    xhr.open('GET', newUrl);
+                    // example of the form for a local file:
+                    // https://mosaic.chpc.utah.edu/api/i/files/serve/7fab5ba1-88b3-4fff-8283-d6d8cc61e986.cram
+                    const isLocalUrl = url.includes('/api/i/files/serve');
 
+                    // Don't proxy local files since they are going to mosaic and won't need CORS
+                    if (isLocalUrl) {
+                        xhr.open('GET', url);
+                    } else {
+                        const newUrl = '/api/i/client-applications/igv/proxy?url=' + encodeURIComponent(url);
+                        xhr.open('GET', newUrl);
+                    }
+                    
                     if (range) {
                         var rangeEnd = range.size ? range.start + range.size - 1 : "";
                         xhr.setRequestHeader("Range", "bytes=" + range.start + "-" + rangeEnd);
