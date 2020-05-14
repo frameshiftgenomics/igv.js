@@ -1,5 +1,5 @@
 {
-  "name": "igv",
+  "name": "igv-proxy",
   "version": "2.3.8",
   "description": "Embeddable genomic visualization component based on the Integrative Genomics Viewer",
   "main": "dist/igv.esm.js",
