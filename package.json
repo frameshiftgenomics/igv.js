@@ -1,5 +1,5 @@
 {
-  "name": "frameshift-igv",
+  "name": "@frameshift-genomics/igv",
   "version": "2.4.0",
   "description": "Embeddable genomic visualization component based on the Integrative Genomics Viewer",
   "main": "dist/igv.esm.js",
