@@ -469,9 +469,9 @@ TrackView.prototype.updateViews = async function (force) {
         }
     }
 
-    const isDragging = this.browser.isDragging;
+    const dragObject = this.browser.dragObject;
 
-    if (!isDragging && this.track.autoscale) {
+    if (!dragObject && this.track.autoscale) {
         let allFeatures = [];
         for (let vp of visibleViewports) {
             const referenceFrame = vp.genomicState.referenceFrame;
@@ -485,7 +485,7 @@ TrackView.prototype.updateViews = async function (force) {
         }
 
         if (typeof this.track.doAutoscale === 'function') {
-            this.track.doAutoscale(allFeatures);
+            this.track.dataRange = this.track.doAutoscale(allFeatures);
         } else {
             this.track.dataRange = doAutoscale(allFeatures);
         }
@@ -493,7 +493,7 @@ TrackView.prototype.updateViews = async function (force) {
 
 
     // Must repaint all viewports if autoscaling
-    if (!isDragging && (this.track.autoscale || this.track.autoscaleGroup)) {
+    if (!dragObject && (this.track.autoscale || this.track.autoscaleGroup)) {
         for (let vp of visibleViewports) {
             vp.repaint();
         }

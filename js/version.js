@@ -1,10 +1,7 @@
-const _version = "2.3.8 (2be2d0733940586b77658aae0ea90bc05f906ff4)"
+const _version = "2.4.0 (87757c0cc9e7b22fdbafafb7aa29764ebbbd663b)"
 
 function version() {
     return _version;
 }
 
 export default version
-
-
-
